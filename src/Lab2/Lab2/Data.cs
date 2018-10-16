@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel;
 using Lab2.Models;
 
 namespace Lab2
@@ -14,26 +9,47 @@ namespace Lab2
 
         public static void Init()
         {
-            //Studios = new BindingList<Studio>()
-            //{
-            //    new Studio("First Name", "First Address", 1, 1, 8),
-            //    new Studio("Second Name", "Second Address", 1, 1, 8),
-            //    new Studio("Third Name", "Third Address", 1, 1, 8),
-            //    new Studio("Fourth Name", "Fourth Address", 1, 1, 8),
-            //    new Studio("Fifth Name", "Fifth Address", 1, 1, 8),
-            //};
-
-            Studios = new BindingList<Studio>()
+            Studios = new BindingList<Studio>
             {
-                new Studio("sadasdsad", "sadsadsad", 1, 1, 8,
-                    new BindingList<Employee>()
+                new Studio("First Studio", "First Address", 50, 45, 20,
+                    new BindingList<Employee>
                     {
-                        new Employee("dfsfds", "sadsadsad", 1)
-                    }, 
-                    new BindingList<Room>()
+                        new Employee("First Employee", "First Employee", 1000),
+                        new Employee("Second Employee", "Second Employee", 1000),
+                        new Employee("Third Employee", "Third Employee", 1000)
+                    },
+                    new BindingList<Room>
                     {
-                        new Room(1, 2)
-                    }) 
+                        new Room(0, 2),
+                        new Room(1, 2),
+                        new Room(2, 3)
+                    }),
+                new Studio("Second Studio", "Second Address", 150, 90, 40,
+                    new BindingList<Employee>
+                    {
+                        new Employee("First Employee", "First Employee", 1000),
+                        new Employee("Second Employee", "Second Employee", 1000),
+                        new Employee("Third Employee", "Third Employee", 1000)
+                    },
+                    new BindingList<Room>
+                    {
+                        new Room(0, 2),
+                        new Room(1, 2),
+                        new Room(2, 3)
+                    }),
+                new Studio("Third Studio", "Third Address", 200, 55, 25,
+                    new BindingList<Employee>
+                    {
+                        new Employee("First Employee", "First Employee", 1000),
+                        new Employee("Second Employee", "Second Employee", 1000),
+                        new Employee("Third Employee", "Third Employee", 1000)
+                    },
+                    new BindingList<Room>
+                    {
+                        new Room(0, 2),
+                        new Room(1, 2),
+                        new Room(2, 3)
+                    })
             };
 
             Studios.AllowNew = true;

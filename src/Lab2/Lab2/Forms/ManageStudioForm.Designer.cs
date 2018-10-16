@@ -39,7 +39,6 @@
             this.lStudioAddress = new System.Windows.Forms.Label();
             this.tbStudioName = new System.Windows.Forms.TextBox();
             this.lStudioName = new System.Windows.Forms.Label();
-            this.lFreeInstrumentsCount = new System.Windows.Forms.Label();
             this.bAddRoom = new System.Windows.Forms.Button();
             this.bRemoveRoom = new System.Windows.Forms.Button();
             this.dgvEmployees = new System.Windows.Forms.DataGridView();
@@ -47,6 +46,9 @@
             this.bAddEmployee = new System.Windows.Forms.Button();
             this.lStudioSalary = new System.Windows.Forms.Label();
             this.bAddEmployeeToRoom = new System.Windows.Forms.Button();
+            this.bUseRoom = new System.Windows.Forms.Button();
+            this.lStudioCash = new System.Windows.Forms.Label();
+            this.bSaveChanges = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRooms)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudInstrumentCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudTimePerTrack)).BeginInit();
@@ -60,6 +62,7 @@
             this.dgvRooms.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRooms.Location = new System.Drawing.Point(326, 11);
             this.dgvRooms.Name = "dgvRooms";
+            this.dgvRooms.ReadOnly = true;
             this.dgvRooms.Size = new System.Drawing.Size(281, 326);
             this.dgvRooms.TabIndex = 0;
             this.dgvRooms.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRooms_CellDoubleClick);
@@ -144,15 +147,6 @@
             this.lStudioName.TabIndex = 10;
             this.lStudioName.Text = "Название студии:";
             // 
-            // lFreeInstrumentsCount
-            // 
-            this.lFreeInstrumentsCount.AutoSize = true;
-            this.lFreeInstrumentsCount.Location = new System.Drawing.Point(12, 169);
-            this.lFreeInstrumentsCount.Name = "lFreeInstrumentsCount";
-            this.lFreeInstrumentsCount.Size = new System.Drawing.Size(244, 13);
-            this.lFreeInstrumentsCount.TabIndex = 16;
-            this.lFreeInstrumentsCount.Text = "Количество свободных инстументов в студии: ";
-            // 
             // bAddRoom
             // 
             this.bAddRoom.Location = new System.Drawing.Point(326, 343);
@@ -179,6 +173,7 @@
             this.dgvEmployees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEmployees.Location = new System.Drawing.Point(746, 11);
             this.dgvEmployees.Name = "dgvEmployees";
+            this.dgvEmployees.ReadOnly = true;
             this.dgvEmployees.Size = new System.Drawing.Size(281, 326);
             this.dgvEmployees.TabIndex = 19;
             // 
@@ -221,11 +216,44 @@
             this.bAddEmployeeToRoom.UseVisualStyleBackColor = true;
             this.bAddEmployeeToRoom.Click += new System.EventHandler(this.bAddEmployeeToRoom_Click);
             // 
+            // bUseRoom
+            // 
+            this.bUseRoom.Location = new System.Drawing.Point(632, 224);
+            this.bUseRoom.Name = "bUseRoom";
+            this.bUseRoom.Size = new System.Drawing.Size(93, 45);
+            this.bUseRoom.TabIndex = 23;
+            this.bUseRoom.Text = "Использовать комнату";
+            this.bUseRoom.UseVisualStyleBackColor = true;
+            this.bUseRoom.Click += new System.EventHandler(this.bUseRoom_Click);
+            // 
+            // lStudioCash
+            // 
+            this.lStudioCash.AutoSize = true;
+            this.lStudioCash.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.lStudioCash.Location = new System.Drawing.Point(12, 214);
+            this.lStudioCash.Name = "lStudioCash";
+            this.lStudioCash.Size = new System.Drawing.Size(78, 13);
+            this.lStudioCash.TabIndex = 24;
+            this.lStudioCash.Text = "Касса студии:";
+            // 
+            // bSaveChanges
+            // 
+            this.bSaveChanges.Location = new System.Drawing.Point(15, 279);
+            this.bSaveChanges.Name = "bSaveChanges";
+            this.bSaveChanges.Size = new System.Drawing.Size(134, 23);
+            this.bSaveChanges.TabIndex = 25;
+            this.bSaveChanges.Text = "Сохранить изменения";
+            this.bSaveChanges.UseVisualStyleBackColor = true;
+            this.bSaveChanges.Click += new System.EventHandler(this.bSaveChanges_Click);
+            // 
             // ManageStudioForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1047, 408);
+            this.Controls.Add(this.bSaveChanges);
+            this.Controls.Add(this.lStudioCash);
+            this.Controls.Add(this.bUseRoom);
             this.Controls.Add(this.bAddEmployeeToRoom);
             this.Controls.Add(this.lStudioSalary);
             this.Controls.Add(this.bRemoveEmployee);
@@ -233,7 +261,6 @@
             this.Controls.Add(this.dgvEmployees);
             this.Controls.Add(this.bRemoveRoom);
             this.Controls.Add(this.bAddRoom);
-            this.Controls.Add(this.lFreeInstrumentsCount);
             this.Controls.Add(this.nudInstrumentCount);
             this.Controls.Add(this.nudTimePerTrack);
             this.Controls.Add(this.nudPricePerTrack);
@@ -271,7 +298,6 @@
         private System.Windows.Forms.Label lStudioAddress;
         private System.Windows.Forms.TextBox tbStudioName;
         private System.Windows.Forms.Label lStudioName;
-        private System.Windows.Forms.Label lFreeInstrumentsCount;
         private System.Windows.Forms.Button bAddRoom;
         private System.Windows.Forms.Button bRemoveRoom;
         private System.Windows.Forms.DataGridView dgvEmployees;
@@ -279,5 +305,8 @@
         private System.Windows.Forms.Button bAddEmployee;
         private System.Windows.Forms.Label lStudioSalary;
         private System.Windows.Forms.Button bAddEmployeeToRoom;
+        private System.Windows.Forms.Button bUseRoom;
+        private System.Windows.Forms.Label lStudioCash;
+        private System.Windows.Forms.Button bSaveChanges;
     }
 }

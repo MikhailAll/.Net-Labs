@@ -25,12 +25,12 @@ namespace Lab2.Forms
             tbStudioAddress.Text = _scopedStudio.StudioAddress;
             nudPricePerTrack.Text = _scopedStudio.PricePerTrack.ToString();
             nudTimePerTrack.Text = _scopedStudio.TimePerTrack.ToString();
-            nudInstrumentCount.Text = _scopedStudio.InstrumentCount.ToString(); 
+            nudInstrumentCount.Text = _scopedStudio.InstrumentCount.ToString();
 
             dgvRooms.DataSource = _scopedStudio.Rooms;
             dgvEmployees.DataSource = _scopedStudio.Employees;
             RecalculateStudioSalary();
-            _scopedStudio.Employees.ListChanged += OnEmployeesListChanged;       
+            _scopedStudio.Employees.ListChanged += OnEmployeesListChanged;
         }
 
         private void bAddRoom_Click(object sender, EventArgs e)
@@ -39,6 +39,8 @@ namespace Lab2.Forms
             {
                 addRoomForm.ShowDialog();
             }
+
+            nudInstrumentCount.Value = _scopedStudio.InstrumentCount;
         }
 
         private void bAddEmployee_Click(object sender, EventArgs e)
@@ -56,7 +58,8 @@ namespace Lab2.Forms
 
         private void RecalculateStudioSalary()
         {
-            string labelRecalculatedText = $"Общая зарплата сотрудников студии: {_scopedStudio.StudioSalary.ToString()}";
+            string labelRecalculatedText =
+                $"Общая зарплата сотрудников студии: {_scopedStudio.StudioSalary.ToString()}";
             lStudioSalary.Text = labelRecalculatedText;
         }
 
@@ -64,8 +67,11 @@ namespace Lab2.Forms
         {
             if (dgvEmployees.CurrentRow != null)
             {
-                _scopedStudio.Employees.Remove(
-                    dgvEmployees.CurrentRow.DataBoundItem as Employee);
+                var employee = dgvEmployees.CurrentRow.DataBoundItem as Employee;
+                if (employee.IsFree)
+                {
+                    _scopedStudio.Employees.Remove(employee);
+                }
             }
         }
 
@@ -91,6 +97,9 @@ namespace Lab2.Forms
                     employee.IsFree = false;
                     dgvRooms.DataSource = _scopedStudio.Rooms;
                 }
+
+                dgvRooms.Refresh();
+                dgvEmployees.Refresh();
             }
         }
 
@@ -103,7 +112,33 @@ namespace Lab2.Forms
                 {
                     manageRoomForm.ShowDialog();
                 }
+
+                dgvRooms.Refresh();
+                dgvEmployees.Refresh();
             }
+        }
+
+        private void bUseRoom_Click(object sender, EventArgs e)
+        {
+            if (dgvRooms.CurrentRow != null)
+            {
+                var room = dgvRooms.CurrentRow.DataBoundItem as Room;
+                if (room.AssignedEmployees.Count >= 2 && room.InstrumentCount >= 2)
+                {
+                    _scopedStudio.StudioCash += _scopedStudio.PricePerTrack;
+                    room.IsFree = false;
+                    lStudioCash.Text = $"Касса студии: {_scopedStudio.StudioCash}";
+                }
+            }
+        }
+
+        private void bSaveChanges_Click(object sender, EventArgs e)
+        {
+            _scopedStudio.StudioName = tbStudioName.Text;
+            _scopedStudio.StudioAddress = tbStudioAddress.Text;
+            _scopedStudio.TimePerTrack = (int) nudTimePerTrack.Value;
+            _scopedStudio.PricePerTrack = (int) nudPricePerTrack.Value;
+            _scopedStudio.InstrumentCount = (int) nudInstrumentCount.Value;
         }
     }
 }

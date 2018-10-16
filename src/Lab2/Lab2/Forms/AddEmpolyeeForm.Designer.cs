@@ -47,16 +47,16 @@
             0,
             0});
             this.nudEmployeeSalary.Name = "nudEmployeeSalary";
-            this.nudEmployeeSalary.Size = new System.Drawing.Size(124, 20);
+            this.nudEmployeeSalary.Size = new System.Drawing.Size(130, 20);
             this.nudEmployeeSalary.TabIndex = 3;
             // 
             // bAddEmployee
             // 
             this.bAddEmployee.Location = new System.Drawing.Point(171, 128);
             this.bAddEmployee.Name = "bAddEmployee";
-            this.bAddEmployee.Size = new System.Drawing.Size(124, 23);
+            this.bAddEmployee.Size = new System.Drawing.Size(130, 23);
             this.bAddEmployee.TabIndex = 4;
-            this.bAddEmployee.Text = "Добавить студию";
+            this.bAddEmployee.Text = "Добавить сотрудника";
             this.bAddEmployee.UseVisualStyleBackColor = true;
             this.bAddEmployee.Click += new System.EventHandler(this.bAddEmployee_Click);
             // 
@@ -64,7 +64,7 @@
             // 
             this.tbEmployeeLastName.Location = new System.Drawing.Point(171, 57);
             this.tbEmployeeLastName.Name = "tbEmployeeLastName";
-            this.tbEmployeeLastName.Size = new System.Drawing.Size(124, 20);
+            this.tbEmployeeLastName.Size = new System.Drawing.Size(130, 20);
             this.tbEmployeeLastName.TabIndex = 2;
             // 
             // lEmployeeSalary
@@ -89,7 +89,7 @@
             // 
             this.tbEmployeeFirstName.Location = new System.Drawing.Point(171, 31);
             this.tbEmployeeFirstName.Name = "tbEmployeeFirstName";
-            this.tbEmployeeFirstName.Size = new System.Drawing.Size(124, 20);
+            this.tbEmployeeFirstName.Size = new System.Drawing.Size(130, 20);
             this.tbEmployeeFirstName.TabIndex = 1;
             // 
             // lEmployeeFirstName
@@ -105,7 +105,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(318, 168);
+            this.ClientSize = new System.Drawing.Size(324, 168);
             this.Controls.Add(this.nudEmployeeSalary);
             this.Controls.Add(this.bAddEmployee);
             this.Controls.Add(this.tbEmployeeLastName);

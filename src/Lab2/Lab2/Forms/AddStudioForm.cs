@@ -20,8 +20,8 @@ namespace Lab2.Forms
             int instrumentCount = (int) nudInstrumentCount.Value;
 
             Data.Studios.Add(
-                new Studio(studioName, studioAddress, pricePerTrack, timePerTrack, instrumentCount) 
-                );
+                new Studio(studioName, studioAddress, pricePerTrack, timePerTrack, instrumentCount)
+            );
 
             this.Close();
         }

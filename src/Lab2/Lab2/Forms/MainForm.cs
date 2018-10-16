@@ -48,5 +48,14 @@ namespace Lab2.Forms
 
             this.Show();
         }
+
+        private void bCloneStudio_Click(object sender, EventArgs e)
+        {
+            if (dgvStudios.CurrentRow != null)
+            {
+                var studio = dgvStudios.CurrentRow.DataBoundItem as Studio;
+                Data.Studios.Add(studio.Clone() as Studio);
+            }
+        }
     }
 }

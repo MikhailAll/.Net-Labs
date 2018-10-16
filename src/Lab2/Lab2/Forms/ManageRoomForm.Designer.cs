@@ -35,19 +35,20 @@
             // 
             // dgvEmployees
             // 
+            this.dgvEmployees.AllowUserToAddRows = false;
             this.dgvEmployees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEmployees.Location = new System.Drawing.Point(350, 12);
+            this.dgvEmployees.Location = new System.Drawing.Point(12, 12);
             this.dgvEmployees.Name = "dgvEmployees";
             this.dgvEmployees.Size = new System.Drawing.Size(258, 264);
             this.dgvEmployees.TabIndex = 0;
             // 
             // bRemoveEmployeeFromRoom
             // 
-            this.bRemoveEmployeeFromRoom.Location = new System.Drawing.Point(350, 298);
+            this.bRemoveEmployeeFromRoom.Location = new System.Drawing.Point(12, 282);
             this.bRemoveEmployeeFromRoom.Name = "bRemoveEmployeeFromRoom";
-            this.bRemoveEmployeeFromRoom.Size = new System.Drawing.Size(75, 23);
+            this.bRemoveEmployeeFromRoom.Size = new System.Drawing.Size(258, 23);
             this.bRemoveEmployeeFromRoom.TabIndex = 1;
-            this.bRemoveEmployeeFromRoom.Text = "button1";
+            this.bRemoveEmployeeFromRoom.Text = "Удалить сотрудника из комнаты";
             this.bRemoveEmployeeFromRoom.UseVisualStyleBackColor = true;
             this.bRemoveEmployeeFromRoom.Click += new System.EventHandler(this.bRemoveEmployeeFromRoom_Click);
             // 
@@ -55,7 +56,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(642, 404);
+            this.ClientSize = new System.Drawing.Size(288, 321);
             this.Controls.Add(this.bRemoveEmployeeFromRoom);
             this.Controls.Add(this.dgvEmployees);
             this.Name = "ManageRoomForm";

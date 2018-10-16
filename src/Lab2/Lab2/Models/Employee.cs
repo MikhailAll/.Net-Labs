@@ -1,6 +1,8 @@
-﻿namespace Lab2.Models
+﻿using System;
+
+namespace Lab2.Models
 {
-    public class Employee
+    public class Employee: ICloneable
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -17,6 +19,11 @@
             FirstName = firstName;
             LastName = lastName;
             Salary = salary;
+        }
+
+        public object Clone()
+        {
+            return new Employee(FirstName, LastName, Salary);
         }
     }
 }

@@ -1,19 +1,18 @@
-﻿using System.Collections.Generic;
+﻿using System;
 using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using Lab2.Annotations;
 
 namespace Lab2.Models
 {
-    public class Room
+    public class Room: ICloneable
     {
         public int RoomNumber { get; set; }
         public int InstrumentCount { get; set; }
 
         public int EmployeesCount
         {
-            get { return AssignedEmployees.Count; }   
+            get { return AssignedEmployees.Count; }
         }
+
         public BindingList<Employee> AssignedEmployees { get; set; }
         public bool IsFree { get; set; }
 
@@ -27,6 +26,11 @@ namespace Lab2.Models
         {
             RoomNumber = roomNumber;
             InstrumentCount = instrumentCount;
+        }
+
+        public object Clone()
+        {
+            return new Room(RoomNumber, InstrumentCount);
         }
     }
 }
